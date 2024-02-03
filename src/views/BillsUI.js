@@ -19,8 +19,15 @@ const row = (bill) => {
     `;
 };
 
+const dateSortDesc = (a, b) => new Date(a.date) - new Date(b.date);
+
 const rows = (data) => {
-  return data && data.length ? data.map((bill) => row(bill)).join("") : "";
+  if (data && data.length) {
+    const sortedData = data.sort(dateSortDesc);
+    return sortedData.map((bill) => row(bill)).join("");
+  } else {
+    return "";
+  }
 };
 
 export default ({ data: bills, loading, error }) => {
