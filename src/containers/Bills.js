@@ -47,18 +47,14 @@ export default class {
             }))
             .filter((bill) => bill.email === userEmail);
 
-          // Sort bills by date in ascending order before formatting
-          bills.sort((a, b) => new Date(a.date) - new Date(b.date));
-          console.log(
-            "Sorted bills:",
-            bills.map((bill) => bill.date)
-          );
-
           bills = bills.map((bill) => ({
             ...bill,
             date: formatDate(bill.date),
             status: formatStatus(bill.status),
           }));
+
+          // Sort bills by date in ascending order
+          bills.sort((a, b) => new Date(a.date) - new Date(b.date));
 
           return bills;
         })
