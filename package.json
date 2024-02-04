@@ -3,7 +3,6 @@
     "test": "jest --coverage --noStackTrace --silent"
   },
   "jest": {
-    "verbose": false,
     "setupFiles": [
       "./setup-jest.js"
     ],
@@ -16,6 +15,10 @@
       "!**/fixtures/**",
       "!**/lcov-report/**"
     ],
+    "verbose": true,
+    "testEnvironmentOptions": {
+      "url": "http://localhost/"
+    },
     "globals": {
       "window": {}
     }
