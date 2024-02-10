@@ -9,7 +9,7 @@ export const formatDate = (dateStr) => {
   const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
   const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
   const month = mo.charAt(0).toUpperCase() + mo.slice(1);
-  return `${month.substr(0, 3)}. ${parseInt(da)}, ${ye.toString().substr(0, 4)}`;
+  return `${month.slice(0, 3)}. ${parseInt(da)}, ${ye}`;
 };
 
 export const formatStatus = (status) => {
